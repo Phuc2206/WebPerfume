@@ -1,0 +1,54 @@
+﻿@{
+    ViewData["Title"] = "Trang Chu";
+}
+
+@*clip demo*@
+@*<div id="builderwidget-3#0" class="uk-section-default uk-cover-container uk-section">
+
+    <iframe width="1525" height="600" uk-cover
+            src="https://www.youtube.com/embed/oB6L2nIreaQ?rel=0&amp;loop=1&amp;playlist=oB6L2nIreaQ&amp;autoplay=1&amp;controls=0&amp;showinfo=0&amp;iv_load_policy=3&amp;modestbranding=1&amp;wmode=transparent&amp;playsinline=1&amp;v=oB6L2nIreaQ&amp;disablekb=1"
+            frameborder="0" allowfullscreen></iframe>
+    <div class="uk-position-cover" style="background-color: rgba(0, 0, 0, 0.53);"></div>
+    <div class="uk-container uk-position-relative">
+
+        <div class="banner-head-text tm-grid-expand uk-child-width-1-1 uk-grid-margin" uk-grid>
+            <div class="uk-grid-item-match uk-flex-middle"></div>
+        </div>
+    </div>
+</div>  *@
+
+
+<div class="content">
+    <section class="content_item">
+        <div>
+            <img class="content_item-Img-item" src="~/User/Imgs/TrangChu/pexelsDefault.jpg" alt="">
+            <div class="content_Item-text-item">
+                <h5>DOLCE & GABBANA</h5>
+
+                <h1>A THROWBACK THAT MOVES FORWARD</h1>
+                
+                <a class="csbtn" asp-controller="SanPham" asp-action="index"> Shop </a>
+            </div>
+        </div>
+    </section>
+
+@*<partial name="_ProductPopular" model="null"/>*@
+
+@await Component.InvokeAsync("ProductPopular");
+@*<partial name="_TrademarkPopular">*@
+@await Component.InvokeAsync("TrademarkPopular");
+
+    <section class="content_item">
+        <div class="subscribe__container">
+            <h2 class="subscribe__title">
+                Subscribe to our newsletter to get future offers
+            </h2>
+            <div class="subscribe__info">
+                <div class="subscribe__form">
+                    <input type="text" class="subscribe__input" placeholder="Enter your email" />
+                    <button class="subscribe__button">Subscribe</button>
+                </div>
+            </div>
+        </div>
+    </section>
+</div>

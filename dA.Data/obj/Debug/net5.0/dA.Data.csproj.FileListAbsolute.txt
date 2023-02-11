@@ -1,0 +1,15 @@
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\bin\Debug\net5.0\dA.Data.deps.json
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\bin\Debug\net5.0\dA.Data.runtimeconfig.json
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\bin\Debug\net5.0\dA.Data.runtimeconfig.dev.json
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\bin\Debug\net5.0\dA.Data.dll
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\bin\Debug\net5.0\dA.Data.pdb
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\obj\Debug\net5.0\dA.Data.csproj.AssemblyReference.cache
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\obj\Debug\net5.0\dA.Data.GeneratedMSBuildEditorConfig.editorconfig
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\obj\Debug\net5.0\dA.Data.AssemblyInfoInputs.cache
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\obj\Debug\net5.0\dA.Data.AssemblyInfo.cs
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\obj\Debug\net5.0\dA.Data.csproj.CoreCompileInputs.cache
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\obj\Debug\net5.0\dA.Data.dll
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\obj\Debug\net5.0\refint\dA.Data.dll
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\obj\Debug\net5.0\dA.Data.pdb
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\obj\Debug\net5.0\dA.Data.genruntimeconfig.cache
+D:\DoAnCoSo\DoAnCoSo2\dA.Data\obj\Debug\net5.0\ref\dA.Data.dll

@@ -1,0 +1,80 @@
+﻿@using dA.Web.Areas.Admin.ViewModels.User
+@model AddUserVM;
+<div class="modal fade" id="UserForm_modal" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="exampleModalScrollableTitle" aria-hidden="true">
+	<div class="modal-dialog modal-dialog-scrollable">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalScrollableTitle">Thêm tài khoản</h5>
+				@*<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+				</button>*@
+			</div>
+			<div class="modal-body">
+				<form autocomplete="off" id="UserForm" enctype="multipart/form-data" method="post">
+					<input asp-for="Id" type="hidden" class="form-control" />
+					<div class="row">
+						<div class="col">
+							<div class="form-group">
+								<div class="ml-2">Ảnh đại diện</div>
+								<div class="image-upload-container d-flex justify-content-center align-items-center">
+									<img id="Avatar" class="img-fluid" alt="Thêm hình ảnh" style="width:203px;height:203px;object-fit:cover" />
+								</div>
+								<input type="file" class="image-upload-button" style="visibility:hidden" name="Avatar" />
+							</div>
+
+							@if (TempData["Err"] != null)
+							{
+								<div class="text-danger">Lỗi: @TempData["Err"]</div>
+							}
+
+							<div class="mb-3">
+								<label asp-for="FullName" class="control-label ml-2">Họ và tên</label>
+								<span asp-validation-for="FullName" class="text-danger small"></span>
+								<input asp-for="FullName" class="form-control" />
+							</div>
+							<div class="mb-3">
+								<label asp-for="Username" class="control-label">Tên đăng nhập</label>
+								<span asp-validation-for="Username" class="text-danger small"></span>
+								<input asp-for="Username" class="form-control" />
+							</div>
+							<div class="mb-3">
+								<label asp-for="Password" class="control-label">Mật khẩu</label>
+								<span asp-validation-for="Password" class="text-danger small"></span>
+								<input asp-for="Password" type="password" class="form-control" />
+							</div>
+							<div class="mb-3">
+								<label asp-for="ConfirmPassword" class="control-label">Nhập lại mật khẩu</label>
+								<span asp-validation-for="ConfirmPassword" class="text-danger small"></span>
+								<input asp-for="ConfirmPassword" type="password" class="form-control" />
+							</div>
+							<div class="mb-3">
+								<label asp-for="Email" class="control-label">Địa chỉ email</label>
+								<span asp-validation-for="Email" class="text-danger small"></span>
+								<input asp-for="Email" class="form-control" />
+							</div>
+							<div class="mb-3">
+								<label asp-for="Address" class="control-label">Địa chỉ</label>
+								<span asp-validation-for="Address" class="text-danger small"></span>
+								<input asp-for="Address" class="form-control" />
+							</div>
+							<div class="mb-3">
+								<label asp-for="Phonenumber" class="control-label">Số điện thoại</label>
+								<span asp-validation-for="Phonenumber" class="text-danger small"></span>
+								<input asp-for="Phonenumber" class="form-control" />
+							</div>
+							<div class="form-group form-check mb-3">
+								<label class="form-check-label">
+									<input class="form-check-input" asp-for="IsSupper" />
+									Tài khoản có quyền quản trị
+								</label>
+							</div>
+						</div>
+					</div>
+				</form>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-light w-25" data-bs-dismiss="modal" id="btnClose">Hủy</button>
+				<button type="button" class="btn btn-primary w-25" id="btnSaveTrademarks">Lưu</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->

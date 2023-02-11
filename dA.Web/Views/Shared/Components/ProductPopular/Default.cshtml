@@ -1,0 +1,43 @@
+﻿@model IEnumerable<dA.Data.JsonViewModels.Product.ProductListItemJM>
+
+<section class="content_item-header">
+	<h2>Most Popular PerFume <i class="fas fa-question-circle"></i></h2>
+	<a asp-controller="SanPham" asp-action="index">Xem thêm &nbsp;<i class="fas fa-arrow-right"></i></a>
+</section>
+<section class="content_item">
+
+	<div class="content_item-body swiper new-swiper">
+		<div class="swiper-wrapper">
+
+			@if (Model != null)
+			{
+				@foreach (var item in Model)
+				{
+					@if (item.ListProductPicture.Count >= 1)
+					{
+						<a asp-action="ProductDetail" asp-controller="SanPham" asp-route-id="@item.Id" class="card_product card-size-lg swiper-slide">
+							@foreach (var iPic in item.ListProductPicture)
+							{
+								<img class="card-img-size-lg" src="~/Images/Product/@iPic.Name" />
+								break;
+							}
+							<div class="product_name">
+								@item.Name
+							</div>
+							<div class="product_foodter">
+								@{
+									var giaBan = item.Price;
+								}
+								<div> Giá bán : @giaBan?.ToString("#,### VNĐ") </div>
+							</div>
+						</a>
+					}
+
+				}
+			}
+
+		</div>
+
+		<div class="swiper-pagination"></div>
+	</div>
+</section>

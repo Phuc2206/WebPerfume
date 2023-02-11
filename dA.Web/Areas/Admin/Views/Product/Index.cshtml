@@ -1,0 +1,60 @@
+﻿@{
+	ViewData["Title"] = "Danh sách sản phẩm";
+}
+@section head{
+	<link href="~/css/UploadImg.css" rel="stylesheet" />
+	<style>
+		.image-upload-container {
+			width: 400px;
+			height: 400px;
+			border: 2px dashed #ccc;
+			border-radius: 3px;
+			cursor: pointer;
+		}
+	</style>
+}
+
+<div class="col-12 mb-3">
+	@*<a class="btn-outline-secondary btn" data-toggle="modal" id="js-GetListCategory" data-target="#Product_modal"><span>Thêm sản phẩm</span></a>*@
+	<button type="button" class="btn btn-primary waves-effect waves-light" id="js-GetListCategory" data-bs-toggle="modal" data-bs-target="#Product_modal">Thêm sản phẩm</button>
+
+	<partial name="_Add" model="Model" />
+</div>
+<div class="col-12 justify-content-center">
+	<div class="justify-content-center">
+		<table class="table table-hover table-bordered w-100 text-center">
+			<thead>
+				<tr>
+					<th class="fit">Id</th>
+					<th>Tên sản phẩm</th>
+					<th width="15%">Hình ảnh </th>
+					<th width="10%">Đã bán</th>
+					<th width="10%">Giá</th>
+					<th width="10%">Giá KM</th>
+					<th width="20%">Loại</th>
+					<th class="fit"></th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			@*<tfoot>
+				<tr>
+					<th>Id</th>
+					<th>Tên sản phẩm</th>
+					<th>Hình ảnh</th>
+					<th>Đã bán</th>
+					<th>Giá</th>
+					<th>Giá KM</th>
+					<th>Loại</th>
+					<th></th>
+				</tr>
+			</tfoot>*@
+		</table>
+	</div>
+	<partial name="_Pagination" />
+</div>
+
+@section Script {
+	<script src="~/Admin/assets/js/Product/product.js" asp-append-version="true"></script>
+	<script src="~/Admin/assets/js/Product/UpLoadImg.js" asp-append-version="true"></script>
+}

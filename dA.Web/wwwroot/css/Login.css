@@ -1,0 +1,134 @@
+.content .content_item {
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 100px;
+}
+.form_login {
+  width: 320px;
+}
+.content .content_item .chu {
+  color: #111111;
+  font-size: 23px;
+  font-weight: 600;
+  line-height: 26px;
+  margin: 0px 17.7px;
+  padding: 32px 0px 27px;
+  text-align: center;
+}
+/*
+.np-form-group,
+.np-form-check {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  margin-bottom: 20px;
+}
+.np-form-group .np-form-control {
+  width: 100%;
+  height: 40px;
+  border: 1px solid #e5e5e5;
+  border-radius: 3px;
+  color: #8d8d8d;
+  line-height: 17px;
+  padding: 0px 16px;
+  transition: 0.025s all;
+}
+.np-form-group .np-form-control:focus {
+  border-color: #111111;
+}
+.np-form-group .np-form-label {
+  color: #8d8d8d;
+  line-height: 17px;
+  position: absolute;
+  top: 50%;
+  left: 17px;
+  transform: translateY(-50%);
+  user-select: none;
+  pointer-events: none;
+}
+.np-form-group .np-form-control:not(:placeholder-shown) + .np-form-label,
+.np-form-group .np-form-control:focus + .np-form-label {
+  display: none;
+}
+
+.btnlogin {
+	display: block;
+	padding: 0px 20px 0px 20px;
+	border: 1px solid #0f0f0f;
+	background-color: #0f0f0f;
+	color: white !important;
+	border-radius: 3px;
+	line-height: 40px;
+	width: 100%;
+	text-align: center;
+}*/
+
+
+
+.np-form-group,
+.np-form-check {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	margin-bottom: 15px;
+}
+
+	.np-form-group .np-form-control {
+		width: 100%;
+		height: 50px;
+		border: 1px solid #e5e5e5;
+		border-radius: 3px;
+		color: #111111;
+		line-height: 17px;
+		padding: 0px 16px;
+		transition: 0.025s all;
+	}
+
+		.np-form-group .np-form-control:focus {
+			border-color: #111111;
+		}
+
+	.np-form-group .np-form-label {
+		color: #8d8d8d;
+		line-height: 17px;
+		position: absolute;
+		top: 50%;
+		left: 17px;
+		transform: translateY(-50%);
+		user-select: none;
+		pointer-events: none;
+	}
+
+	.np-form-group .np-form-control:not(:placeholder-shown) + .np-form-label,
+	.np-form-group .np-form-control:focus + .np-form-label {
+		top: 0;
+		background-color: white;
+		padding: 2px;
+		color: #8d8d8d;
+	}
+
+	.np-form-group .np-form-control:focus + .np-form-label {
+		color: #111111;
+	}
+
+.btnlogin {
+	display: block;
+	padding: 0px 20px 0px 20px;
+	border: 1px solid #0f0f0f;
+	background-color: #0f0f0f;
+	color: white !important;
+	border-radius: 3px;
+	line-height: 56px;
+	text-align: center;
+	width: 100%;
+}
+
+.np-form-group-validate {
+	width: 100%;
+	height: 100%;
+	position: relative;
+	margin-bottom: 10px;
+	margin-left: 20px;
+}

@@ -1,0 +1,192 @@
+﻿@section head{
+	<link href="~/css/DanhSachSanPham.css" rel="stylesheet" />
+	<style>
+		.page-item.active .page-link {
+			z-index: 4;
+			color: #fff;
+			background-color: #000000;
+			border-color: #000000;
+		}
+
+		.page-item .page-link {
+			z-index: 4;
+			color: #8d8d8d;
+		}
+	</style>
+}
+
+@model IEnumerable<dA.Data.JsonViewModels.Product.ProductListItemJM>
+
+<div class="content__product d-flex">
+	<div class="filter_product">
+		<div class="group_category mt-5 mt-4">
+			<h2 class="filter_product_title">Thương Hiệu</h2>
+			<ul class="list_category">
+				<li class="list_category"><a href="#" class="list_category_link">GUCCI</a></li>
+				<li class="list_category"><a href="#" class="list_category_link">LE LABO</a></li>
+				<li class="list_category"><a href="#" class="list_category_link">Dior</a></li>
+				<li class="list_category"><a href="#" class="list_category_link">Chanel</a></li>
+			</ul>
+		</div>
+		<div class="group_size">
+			<h2 class="filter_product_title">Dung Tích</h2>
+			<div class="list_size d-flex flex-wrap-wrap">
+
+				<div class="size_item">
+					<button type="button">
+						<span class="size_item_text">30ML</span>
+					</button>
+				</div>
+				<div class="size_item">
+					<button type="button">
+						<span class="size_item_text">50ML</span>
+					</button>
+				</div>
+				<div class="size_item">
+					<button type="button">
+						<span class="size_item_text">100ML</span>
+					</button>
+				</div>
+			</div>
+		</div>
+		<div class="group_price">
+			<h2 class="filter_product_title">Giá</h2>
+			<div class="list_price">
+				<div class="list_price_item">
+					<label class="label_custom_checkbox">
+						Dưới 1.000.000 VNĐ
+						<input type="checkbox">
+						<span class="checkmark"></span>
+					</label>
+				</div>
+				<div class="list_price_item">
+					<label class="label_custom_checkbox">
+						1.000.000 - 2.000.000 VNĐ
+						<input type="checkbox">
+						<span class="checkmark"></span>
+					</label>
+				</div>
+				<div class="list_price_item">
+					<label class="label_custom_checkbox">
+						2.000.000 - 3.000.000 VNĐ
+						<input type="checkbox">
+						<span class="checkmark"></span>
+					</label>
+				</div>
+				<div class="list_price_item">
+					<label class="label_custom_checkbox">
+						3.000.000 - 4.000.000 VNĐ
+						<input type="checkbox">
+						<span class="checkmark"></span>
+					</label>
+				</div>
+				<div class="list_price_item">
+					<label class="label_custom_checkbox">
+						4.000.000 - 5.000.000 VNĐ
+						<input type="checkbox">
+						<span class="checkmark"></span>
+					</label>
+				</div>
+				<div class="list_price_item">
+					<label class="label_custom_checkbox">
+						Trên 5.000.000 VNĐ
+						<input type="checkbox">
+						<span class="checkmark"></span>
+					</label>
+				</div>
+			</div>
+		</div>
+	</div>
+
+	<div class="list_product d-flex flex-wrap-wrap">
+		<div class="list_product_title d-flex mb-5">
+			<div class="list_product_title_left">
+				@*<nav>
+						<ol class="list_product_title_left_item">
+							<li><a href="">Home</a></li>
+							<span>/</span>
+							<li><a href="">Sneaker</a></li>
+							<span>/</span>
+							<li><a href="">3</a></li>
+							<span>/</span>
+						</ol>
+					</nav>*@
+			</div>
+			<div class="list_product_title_right">
+				<div class="group_future">
+					<button>Hide filter &nbsp; <i class="fas fa-angle-left"></i></button>
+				</div>
+			</div>
+		</div>
+
+		@if (Model != null)
+		{
+			@foreach (var item in Model)
+			{
+				@if (item.ImgName != null)
+				{
+					<a class="card_product card-size-lg" asp-action="ProductDetail" asp-controller="SanPham" asp-route-id="@item.Id">
+						<img class="card-img-size-lg" src="~/Images/Product/@item.ImgName" alt="">
+
+						<div class="product_name">
+							@item.Name
+						</div>
+						<div class="product_foodter">
+							@{
+								var giaBan = item.Price;
+							}
+							<div> Giá bán : @giaBan?.ToString("#,### VNĐ") </div>
+						</div>
+					</a>
+				}
+
+			}
+		}
+
+
+
+	</div>
+
+
+</div>
+<div class="my-4 mx-auto" style="width: 300px;">
+	@Html.PagedListPager((IPagedList)Model,
+		page => Url.Action("Index", new { page = page }),
+		new PagedListRenderOptions
+		{
+			LiElementClasses = new string[] { "page-item" },
+			PageClasses = new string[] { "page-link" },
+		})
+</div>
+@section Scripts{
+	<script>
+		$(".list_price_item").click(function () {
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: 'Xin lỗi, chức năng này sẽ được cập nhật trong phiên bản sắp ra mắt!'
+			});
+		});
+		$(".size_item").click(function () {
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: 'Xin lỗi, chức năng này sẽ được cập nhật trong phiên bản sắp ra mắt!'
+			});
+		});
+		$(".list_category").click(function () {
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: 'Xin lỗi, chức năng này sẽ được cập nhật trong phiên bản sắp ra mắt!'
+			});
+		})
+        $(".list_product_title_right").click(function () {
+			Swal.fire({
+				icon: 'error',
+				title: 'Oops...',
+				text: 'Xin lỗi, chức năng này sẽ được cập nhật trong phiên bản sắp ra mắt!'
+			});
+		})
+	</script>
+}

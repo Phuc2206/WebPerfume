@@ -1,0 +1,40 @@
+﻿
+<div>
+	<!-- sample modal content -->
+	<div id="Trademarks_modal" class="modal fade" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="Trademarks_modalLable" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="title">Thêm thương hiệu</h5>
+					@*<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+					</button>*@
+				</div>
+				<div class="modal-body">
+					<form id="TrademarkForm" enctype="multipart/form-data" method="post">
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+						<input name="Id" id="Id" type="hidden" class="form-control" />
+						<div class="row">
+							<div class="col">
+								<div class="form-group">
+									<div class="ml-2">Ảnh đại diện</div>
+									<div class="image-upload-container d-flex justify-content-center align-items-center">
+										<img id="Avatar" src="url" alt="Chọn hình ảnh" style="width: 203px; height: 203px;object-fit:cover;" />
+									</div>
+									<input type="file" class="image-upload-button" style="visibility:hidden" name="Avatar" />
+								</div>
+								<div class="mb-3">
+									<label for="Name" class="control-label ml-2"><span>Tên thương hiệu</span></label>
+									<input name="Name" for="Name" id="Name" class="form-control" placeholder="Nhập tên thương hiệu..." />
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal" id="btnClose">Hủy</button>
+					<button type="button" class="btn btn-primary waves-effect waves-light" id="btnSaveTrademarks">Lưu</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</div>

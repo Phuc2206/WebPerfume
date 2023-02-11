@@ -1,0 +1,53 @@
+﻿@{
+	ViewData["Title"] = "Danh sách thương hiệu";
+}
+@section head{
+	<style>
+		.image-upload-container {
+			margin-top: 20px;
+			width: 198px;
+			height: 198px;
+			border: 2px dashed #ccc;
+			border-radius: 3px;
+			margin-left: 100px;
+			cursor: pointer;
+		}
+	</style>
+}
+<div class="col-12 mb-3">
+	@*<a class="btn-outline-secondary btn js-add-or-update" id="js-AddOrUpdateTrademark" data-toggle="modal" data-target="#Trademarks_modal"><span>Thêm thể loại</span></a>*@
+	<button type="button" class="btn btn-primary waves-effect waves-light js-add-or-update" data-bs-toggle="modal" data-bs-target="#Trademarks_modal" id="js-AddOrUpdateTrademark">Thêm thương hiệu</button>
+
+	<partial name="_AddOrUpdate" model="Model" />
+</div>
+<div class="col-12 justify-content-center">
+	<div class="justify-content-center">
+		<table id="tableCate" class="table table-hover table-bordered w-100 text-center">
+			<thead>
+				<tr>
+					<th>Id</th>
+					<th width="40%">Tên thương hiệu</th>
+					<th width="30%">Ảnh đại điện</th>
+					<th class="fit" width="10%"></th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			@*<tfoot>
+				<tr>
+					<th>Id</th>
+					<th>Tên thương hiệu</th>
+					<th>Ảnh đại điện</th>
+					<th></th>
+				</tr>
+			</tfoot>*@
+		</table>
+		<partial name="_Pagination" />
+	</div>
+	
+</div>
+
+<partial name="_AddOrUpdate" />
+@section Script {
+	<script src="~/Admin/assets/js/Trademarks/Trademark.js" asp-append-version="true"></script>
+}

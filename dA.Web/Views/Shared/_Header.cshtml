@@ -1,0 +1,50 @@
+﻿<header>
+	<div class="header">
+		<div class="header-logo">
+			<a href="/" class="logo-chu">
+				<span class=""> PT.Perfume</span>
+			</a>
+		</div>
+		<div class="header-search">
+			<form class="header-search-form" asp-action="index" asp-controller="SanPham">
+				<input class="header-search-input" type="search" placeholder="Search.." name="searchString" >
+			</form>
+		</div>
+		<div class="header-menu">
+			<ul class="header-menu-right">
+				<li class="header-menu-item"><a asp-controller="SanPham" asp-action="index" class="header-menu-link">Sản Phẩm</a></li>
+				@*<li class="header-menu-item"><a asp-controller="Contact" asp-action="Create" class="header-menu-link">Liên Hệ</a></li>*@
+                <li class="header-menu-item"><a href="" class="header-menu-link">Liên Hệ</a></li>
+				@if (User.Identity.IsAuthenticated)
+				{
+
+					string fullName = User.FindFirstValue(ClaimTypes.Name).ToString();
+					//string fullName = User.Claims.Where(s => s.Type.ToLower().Contains("name") && !s.Type.ToLower().Contains("nameidentifier")).Select(s => s.Value).FirstOrDefault();
+					
+					if (fullName == null)
+					{
+						fullName = "Welcome";
+					}
+					<li class="header-menu-item"><a asp-controller="AccountCustomer" asp-action="LogoutCustomer" class="header-menu-link"> (@fullName) Đăng Xuất</a></li>
+				}
+				else
+				{
+					<li class="header-menu-item"><a asp-controller="AccountCustomer" asp-action="LoginCustomer" class="header-menu-link">Đăng Nhập</a></li>
+					<li class="header-menu-item"><a asp-controller="AccountCustomer" asp-action="AddUserCustomer" class="header-menu-link">Đăng Ký</a></li>
+
+				}
+
+			</ul>
+		</div>
+		<div class="header-giohang">
+			<div class="giohang-bao">
+				<a class="giohang__link" asp-action="index" asp-controller="ShoppingCart">
+					<i class="fas fa-shopping-cart"></i>&nbsp; <span class="giohang-chu">
+						Giỏ
+						Hàng
+					</span>
+				</a>
+			</div>
+		</div>
+	</div>
+</header>

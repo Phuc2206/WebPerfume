@@ -1,0 +1,47 @@
+﻿@section head{ 
+	<link href="~/css/Login.css" asp-append-version="true" rel="stylesheet" />
+}
+@model dA.Web.ViewModels.UserLoginCustomerVM
+<div class="content">
+	<section class="content_item">
+		<div class="form_login">
+			<div class="chu">
+				YOUR ACCOUNT FOR PT.Perfume
+			</div>
+			@if (TempData["Mesg"] != null)
+			{
+				<span class="text-danger small">@TempData["Mesg"]</span>
+			}
+			<form action="" method="post">
+				<div class="np-form-group">
+					<input id="my-input" class="np-form-control" asp-for="Username" placeholder=" ">
+					<label for="my-input" class="np-form-label" asp-for="Username">Username</label>
+				</div>
+				<div class="np-form-group">
+					<input id="my-input" type="password" class="np-form-control" asp-for="Password"
+						   placeholder=" ">
+					<label for="my-input" class="np-form-label" asp-for="Password">Password</label>
+				</div>
+				<div class="np-form-check">
+					<label asp-for="RememberMe">
+						<input type="checkbox" asp-for="RememberMe">
+						Giữ luôn luôn đăng nhâp
+					</label>
+				</div>
+				<div class="np-form-group">
+					<button type="submit" asp-controller="AccountCustomer" asp-action="LoginCustomer" class="btnlogin">Đăng nhập</button>
+				</div>
+				<div class="np-form-group" style="text-align: center; color:#8d8d8d">
+					<div>
+						Chưa có tài khoản. <a asp-action="AddUserCustomer" asp-controller="AccountCustomer" style="	color: (internal value);
+                                    text-decoration: underline;
+                                    cursor: pointer;color: rgb(38, 38, 206);">
+							Đăng
+							ký ?
+						</a>
+					</div>
+				</div>
+			</form>
+		</div>
+	</section>
+</div>

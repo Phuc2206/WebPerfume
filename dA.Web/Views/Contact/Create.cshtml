@@ -1,0 +1,56 @@
+﻿@section head{
+    <link href="~/css/Login.css" asp-append-version="true" rel="stylesheet" />
+}
+@model dA.Data.Entities.AppContact
+
+
+
+<div class="content">
+        <div id="Contact_modal" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-hidden="true">
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="modal-body">
+                    <form id="ContactForm" enctype="multipart/form-data" method="post">
+                        <div class="np-form-group-validate">
+                            <span asp-validation-for="FullName" class="text-danger small"></span>
+                        </div>
+                        <div class="np-form-group">
+                            <input class="np-form-control" asp-for="FullName" placeholder=" ">
+                            <label class="np-form-label" asp-for="FullName">Tên</label>
+                        </div>
+
+                        <div class="np-form-group-validate">
+                            <span asp-validation-for="Email" class="text-danger small"></span>
+                        </div>
+                        <div class="np-form-group">
+                            <input class="np-form-control" asp-for="Email" placeholder=" ">
+                            <label class="np-form-label" asp-for="Email">Email</label>
+                        </div>
+                        <div class="np-form-group-validate">
+                            <span asp-validation-for="Message" class="text-danger small"></span>
+                        </div>
+                        <div class="np-form-group">
+                            <input class="np-form-control" asp-for="Message" placeholder=" ">
+                            <label class="np-form-label" asp-for="Message">Message</label>
+                        </div>
+                        <div class="np-form-group-validate">
+                            <span asp-validation-for="Phone" class="text-danger small"></span>
+                        </div>
+                        <div class="np-form-group">
+                            <input class="np-form-control" asp-for="Phone" placeholder=" ">
+                            <label class="np-form-label" asp-for="Phone">Phone</label>
+                        </div>
+                    </form>
+                    </div>
+                    <div class="modal-footer">
+				@*<button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal" id="btnClose">Hủy</button>*@
+				<button type="button" class="btn btn-primary waves-effect waves-light" id="btnSaveContact">Gửi</button>
+			</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+    @section Scripts{
+    <partial name="_ValidationScriptsPartial" />
+}

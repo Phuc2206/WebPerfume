@@ -1,0 +1,36 @@
+﻿@{
+	ViewData["Title"] = "Danh sách khách hàng";
+}
+<div class="container-fluid">
+	<div class="col-12">
+		<table id="tblUser" class="table table-hover table-bordered w-100 text-center">
+			<thead>
+				<tr>
+					<th>#</th>
+					<th>Tên khách hàng</th>
+					<th>Tài khoản</th>
+					<th>Địa chỉ Email</th>
+					<th>Trạng thái</th>
+					<th class="fit"></th>
+				</tr>
+			</thead>
+			<tbody>
+			</tbody>
+			@*<tfoot>
+				<tr>
+					<th>#</th>
+					<th>Tên khách hàng</th>
+					<th>Tài khoản</th>
+					<th>Địa chỉ Email</th>
+					<th>Trạng thái</th>
+					<th></th>
+				</tr>
+			</tfoot>*@
+		</table>
+		<partial name="_Pagination" />
+		<partial name="_Update">
+	</div>
+</div>
+	@section script{
+		<script src="~/Admin/assets/js/Customer/Customer.js" asp-append-version="true"></script>
+	}

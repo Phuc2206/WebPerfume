@@ -1,0 +1,49 @@
+﻿@using dA.Web.Areas.Admin.ViewModels.CategoryVM
+@model CategoryAddVM
+
+<div>
+	<!-- sample modal content -->
+	<div id="Category_modal" class="modal fade" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="Trademarks_modalLable" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="title">Thêm thể loại cho sản phẩm</h5>
+					@*<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+					</button>*@
+				</div>
+				<div class="modal-body">
+					<form autocomplete="off" id="CategoryForm" method="post">
+						<input asp-for="Id" type="hidden" class="form-control" />
+						<div class="row">
+							<div class="col">
+								<div class="mb-3">
+									<label class="form-label" asp-for="Name">Tên thể loại</label>
+									<input class="form-control" type="text" asp-for="Name" placeholder="Nhập tên thể loại...">
+									<span class="text-danger" asp-validation-for="Name"></span>
+								</div>
+
+								<div class="mb-3">
+									<label class="form-label" asp-for="DisplayOrder">DisplayOrder</label>
+									<input class="form-control" type="text" asp-for="DisplayOrder" placeholder="Nhập số thứ tự xắp sếp....">
+									<span class="text-danger" asp-validation-for="Name"></span>
+								</div>
+
+								<div class="mb-3">
+									<label asp-for="TrademarkId" class="control-label ml-2">Thể loại thuộc thương hiệu</label>
+									<select asp-for="TrademarkId" class="form-control select2" data-placeholder="Choose ...">
+									</select>
+									<span asp-validation-for="TrademarkId" class="text-danger"></span>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal" id="btnClose">Hủy</button>
+					<button type="button" class="btn btn-primary waves-effect waves-light" id="btnSaveCategory">Lưu</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</div>
+

@@ -1,0 +1,46 @@
+﻿@*@model IEnumerable<dA.Data.Entities.AppBlogCategory>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div>
+    <h1 class="text-center">
+        Databasee Table Blog
+    </h1>
+    <a asp-action="Create" class="btn btn-link">Thêm Mới</a>
+    <table class="table table-hover">
+        <thead>
+            <tr>
+                <td>ID</td>
+                <td>Nội Dung</td>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null)
+            {
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.IdBlog)
+                        </td>
+                        <td>
+                            @Html.DisplayFor(modelItem => item.Content)
+                        </td>
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            Chức Năng
+                        </a>
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" asp-action="Update" asp-route-id="IdBlog">Sửa</a></li>
+                            <li>
+                                <a class="dropdown-item" asp-action="Delete" asp-route-id="IdBlog"
+                                                onclick="return confirm('xác nhận xóa??')">Xóa</a>
+                            </li>
+                        </ul>
+                    </tr>
+                }
+            }
+        </tbody>
+    </table>
+</div>*@

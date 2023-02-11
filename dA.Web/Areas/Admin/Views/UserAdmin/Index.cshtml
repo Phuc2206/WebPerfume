@@ -1,0 +1,52 @@
+﻿@{
+	ViewBag.Title = "Danh Sách Admin";
+}
+@section head{
+	<style>
+		.image-upload-container {
+			margin-top: 20px;
+			width: 200px;
+			height: 200px;
+			border: 2px dashed #ccc;
+			border-radius: 3px;
+			cursor: pointer;
+			margin: auto
+		}
+	</style>
+}
+<div class="col-12">
+	<div class="mt-4 mb-4">
+		@*<button type="button" class="btn btn-primary waves-effect waves-light js-add-user" id="AddUser" data-target="modal" data-bs-target="#UserForm_modal"><i class="fa fa-user-plus"></i><span> Thêm tài khoản</span></button>*@
+		@if(User.IsInRole("SuperAdmin"))
+		{
+			<button type="button" class="btn btn-primary waves-effect waves-light js-add-user" id="AddUser" data-bs-toggle="modal" data-bs-target="#UserForm_modal">Thêm tài khoản</button>
+		}
+	</div>
+
+	<table id="tblUser" class="table table-hover table-bordered w-100 text-center">
+		<thead>
+			<tr>
+				<th>Id</th>
+				<th>Tên đăng nhập</th>
+				<th>Tên đầy đủ</th>
+				<th>Avatar</th>
+				<th>Quyền</th>
+				<th class="fit"></th>
+			</tr>
+		</thead>
+		<tbody>
+		</tbody>
+	</table>
+	<partial name="_Pagination" />
+</div>
+
+
+<partial name="_AddUser" />
+
+@section script
+{
+	<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+	<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+	<script src="~/Admin/assets/js/Admin/UserAdmin.js" asp-append-version="true"></script>
+}
+

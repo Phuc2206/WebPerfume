@@ -1,0 +1,119 @@
+﻿@section head{
+	<link href="~/css/DetailProduct.css" rel="stylesheet" />
+	<link href="~/css/ThongTInKhachHang.css" asp-append-version="true" rel="stylesheet" />
+}
+@model IEnumerable<dA.Web.ViewModels.ShoppingCartViewModel>
+<div class="content">
+	<section class="content_item grid p_l_r_150">
+		<div class="shoppingcart_left mt-3">
+			<div class="tilte">Delivery Information</div>
+			<form action="" method="post">
+				<div class="form_login mt-4">
+					<div class="np-form-group">
+						<input id="Name" class="np-form-control" placeholder=" " name="Name">
+						<label for="Name" class="np-form-label">Họ và tên</label>
+					</div>
+					<div class="np-form-group">
+						<input id="PhoneNumber" class="np-form-control" placeholder=" " name="PhoneNumber">
+						<label for="PhoneNumber" class="np-form-label">Số điện thoại</label>
+					</div>
+					<div class="np-form-group">
+						<input id="Email" class="np-form-control" placeholder=" " name="Email">
+						<label for="Email" class="np-form-label">Địa chỉ Email</label>
+					</div>
+					<div class="np-form-group">
+						<select id="billingProvince" placeholder=" " name="ThanhPho" size="1" type="text" class="field__input field__input--select np-form-control" data-bind="billing.province" value="58" data-address-type="province" data-address-zone="billing">
+							<option value="0">Chưa chọn</option>
+						</select>
+						<label for="billingProvince" class="np-form-label">Thành Phố</label>
+					</div>
+					<div class="np-form-group">
+						<select id="billingDistrict" size="1" type="text" class="field__input field__input--select np-form-control" placeholder=" " name="QuanHuyen" value="644" data-bind="billing.district" data-address-type="district" data-address-zone="billing">
+							<option value="0">Chưa chọn</option>
+						</select>
+						<label for="billingDistrict" class="np-form-label">Chọn quận / huyện</label>
+					</div>
+					<div class="np-form-group">
+						<select id="billingWard" size="1" type="text" placeholder=" " name="PhuongXa" class="np-form-control field__input field__input--select" value="9767" data-bind="billing.ward" data-address-type="ward" data-address-zone="billing">
+							<option value="0">Chưa chọn</option>
+						</select>
+						<label for="my-input" class="np-form-label">Chọn phường/xã</label>
+					</div>
+					<div class="np-form-group">
+						<input id="StreetAddress" class="np-form-control" placeholder=" " name="StreetAddress">
+						<label for="StreetAddress" class="np-form-label">Địa chỉ nhận hàng</label>
+					</div>
+					<div class="np-form-group">
+						<input id="GhiChu" class="np-form-control" placeholder=" " name="GhiChu">
+						<label for="GhiChu" class="np-form-label">Ghi chú</label>
+					</div>
+					<div class="np-form-group">
+						<button type="button" class="btnlogin js-checkout">Thanh toán</button>
+					</div>
+					<div class="np-form-group">
+						<button type="submit" asp-action="index" asp-controller="ShoppingCart" class="btnlogin">Trở về giỏ hàng</button>
+					</div>
+				</div>
+			</form>
+		</div>
+
+
+		<div class="shoppingcart_right mt-3">
+			<div class="tilte">Summary</div>
+
+			<div class="shoppingcart_right_item d-flex mt-5">
+				<div class="text shoppingcart_right_item_left">
+					Tạm tính
+				</div>
+				<span class="text right TmpSumMoneyProduct">
+					0đ
+				</span>
+			</div>
+			<div class="shoppingcart_right_item d-flex">
+				<div class="text shoppingcart_right_item_left">
+					Giao hàng & Xử lý Ước tính
+				</div>
+				<span class="text right priceShip">
+					0₫
+				</span>
+			</div>
+			<div class="shoppingcart_right_item d-flex line-top mt-5">
+				<div class="text shoppingcart_right_item_left">
+					Tổng
+				</div>
+				<span class="text right indam SumMoneyProduct">
+					0đ
+				</span>
+			</div>
+
+			<section class="list-product mt-5">
+				@if (Model.Count() > 0)
+				{
+					@foreach (var item in Model)
+					{
+						<div class="card-product mt-3">
+							<div class="img_left">
+								<img src="~/Images/Product/@item.UrlPicture" class="img" alt="Sheep">
+							</div>
+							<div class="info-product">
+								<div class="nameproduct">
+									<h6> @item.Name</h6>
+								</div>
+								<div>Số lượng : <span class="list-quantity">@item.Quantity</span></div>
+								<div>Size :@item.Size </div>
+								<p class="Money-item" data-price="@item.PriceProduct">@item.PriceProduct?.ToString("#,### VNĐ")</p>
+							</div>
+						</div>
+					}
+				}
+			</section>
+		</div>
+	</section>
+
+</div>
+
+@section Scripts{
+    <script src="~/js/signalr/dist/browser/signalr.js"></script>
+	<script src="~/js/checkout.min.js" asp-append-version="true"></script>
+	<script src="~/Admin/assets/js/ShoppingCart/Checkoutjs.js" asp-append-version="true"></script>
+}

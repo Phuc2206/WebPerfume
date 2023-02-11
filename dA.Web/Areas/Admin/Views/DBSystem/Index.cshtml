@@ -1,0 +1,97 @@
+﻿@model dA.Web.common.AppSystemEnv;
+
+@{
+    ViewData["Title"] = "Thông tin cửa hàng";
+}
+
+
+<form asp-action="Update" autocomplete="off">
+    <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+    @* --- Thông tin cơ bản ---*@
+    <div class="form-group">
+            <div class="card">
+                <div class="card-header">
+                    <h3 class="card-title">Thông tin cơ bản</h3>
+                    <div class="card-tools">
+                    </div>
+                </div>
+               @* <div class="card-body">
+                    <div class="form-group">
+                        <label for="logo" class="control-label">Ảnh logo</label>
+                        <div class="btn-group w-100" role="group">
+                            <input readonly id="logo"
+                                   name="logo"
+                                   class="form-control" value='@Model["logo"]'
+                                   placeholder="Ảnh logo..." />
+                            <input type="button" class="btn btn-secondary btn-elfinder"
+                                   data-imgthumbnailpath=""
+                                   data-imgpath="#Logo"
+                                   value="Chọn ảnh" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="DefautImg" class="control-label">Ảnh mặc định (dùng khi sản phẩm không có ảnh)</label>
+                        <div class="btn-group w-100" role="group">
+                            <input readonly id="DefautImg"
+                                   name="DefautImg"
+                                   class="form-control" value='@Model["DefautImg"]'
+                                   placeholder="Ảnh mặc định..." />
+                            <input type="button" class="btn btn-secondary btn-elfinder"
+                                   data-imgthumbnailpath=""
+                                   data-imgpath="#DefaultImage"
+                                   value="Chọn ảnh" />
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="Icon" class="control-label">Icon mặc định (xuất hiện ở tab của trình duyệt)</label>
+                        <div class="btn-group w-100" role="group">
+                            <input readonly id="Icon"
+                                   name="Icon"
+                                   class="form-control" value='@Model["Icon"]'
+                                   placeholder="Icon mặc định..." />
+                            <input type="button" class="btn btn-secondary btn-elfinder"
+                                   data-imgthumbnailpath=""
+                                   data-imgpath="#IconImagePath"
+                                   value="Chọn icon" />
+                        </div>
+                    </div>*@
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="Phone" class="control-label">Số điện thoại 1</label>
+                            <input id="Phone"
+                                   placeholder="Số điện thoại...."
+                                   name="Phone" class="form-control" value='@Model["Phone"]' />
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label for="BrandName" class="control-label">Tên cửa hàng</label>
+                            <input id="BrandName"
+                                   placeholder="Tên cửa hàng...."
+                                   name="BrandName" class="form-control" value='@Model["BrandName"]' />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="Address" class="control-label">Địa chỉ cửa hàng</label>
+                <textarea rows="3"
+                          id="Address"
+                          placeholder="Địa chỉ cửa hàng..."
+                          name="Address" class="form-control"
+                          value='@Model["Address"]'>@Model["Address"]</textarea>
+            </div>
+    </div>
+
+
+
+    <div class="form-group">
+        <button type="submit" class="btn btn-success"><i class="fa fa-save"></i> Lưu</button>
+        <button type="reset" class="btn btn-default"><i class="fa fa-undo"></i> Nhập lại</button>
+    </div>
+
+</form>

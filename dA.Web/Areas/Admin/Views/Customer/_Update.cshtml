@@ -1,0 +1,61 @@
+﻿@using dA.Data
+@model AppCustomer
+<div>
+	<!-- sample modal content -->
+	<div id="UserCustomer_modal" class="modal fade" tabindex="-1" role="dialog" data-bs-backdrop="static" aria-labelledby="Trademarks_modalLable" aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+				<div class="modal-header">
+					<h5 class="modal-title" id="title">Cập nhật khách hàng</h5>
+					@*<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close">
+					</button>*@
+				</div>
+				<div class="modal-body">
+					<form id="UserCutomerForm" enctype="multipart/form-data" method="post">
+						<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+						<input name="Id" id="Id" type="hidden" class="form-control" />
+						<div class="row">
+							<div class="col">
+								<div class="mb-3">
+									<label asp-for="Name" class="control-label ml-2">Họ và tên</label>
+									<span asp-validation-for="Name" class="text-danger small"></span>
+									<input asp-for="Name" class="form-control" />
+								</div>
+								<div class="mb-3">
+									<label asp-for="Username" class="control-label">Tên đăng nhập</label>
+									<span asp-validation-for="Username" class="text-danger small"></span>
+									<input asp-for="Username" class="form-control" />
+								</div>
+								<div class="mb-3">
+									<label asp-for="Email" class="control-label">Địa chỉ email</label>
+									<span asp-validation-for="Email" class="text-danger small"></span>
+									<input asp-for="Email" class="form-control" />
+								</div>
+								<div class="mb-3">
+									<label asp-for="Address" class="control-label">Địa chỉ</label>
+									<span asp-validation-for="Address" class="text-danger small"></span>
+									<input asp-for="Address" class="form-control" />
+								</div>
+								<div class="mb-3">
+									<label asp-for="PhoneNumber" class="control-label">Số điện thoại</label>
+									<span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+									<input asp-for="PhoneNumber" class="form-control" />
+								</div>
+								<div class="form-group form-check mb-3">
+									<label class="form-check-label">
+										<input class="form-check-input" asp-for="IsLock" />
+										Khóa tài người dùng
+									</label>
+								</div>
+							</div>
+						</div>
+					</form>
+				</div>
+				<div class="modal-footer">
+					<button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal" id="btnClose">Hủy</button>
+					<button type="button" class="btn btn-primary waves-effect waves-light" id="btnSaveCustomer">Lưu</button>
+				</div>
+			</div><!-- /.modal-content -->
+		</div><!-- /.modal-dialog -->
+	</div><!-- /.modal -->
+</div>

@@ -1,0 +1,176 @@
+﻿@model dA.Data.AppProduct
+
+@section head{
+	<link href="~/css/DetailProduct.css" rel="stylesheet" />
+	<style>
+		.maukhac {
+			background-color: #f7f7f7 !important;
+			border-color: #f7f7f7 !important;
+			cursor: context-menu;
+			pointer-events: none;
+		}
+	</style>
+}
+
+<section class="content_item grid">
+	<div class="product_detail_left">
+		@if (Model != null)
+		{
+			@foreach (var item in Model.ListProductPicture)
+			{
+				<div class="product_detail_left_item">
+					<img src="~/Images/Product/@item.Name" alt="" class="product_detail_left_img">
+				</div>
+			}
+		}
+
+	</div>
+	<div class="product_detail_right">
+		<div class="product_detail_right-item">
+			<div class="product_name">@Model.Name</div>
+			@{
+				var giaBan = Model.Price;
+			}
+			<div class="product_price"> Giá bán : @giaBan?.ToString("#,### VNĐ") </div>
+		</div>
+		<div class="product_detail_right-item mt-3">
+			<div class="size_title">Dung Tích</div>
+			<div class="product_list_size">
+
+				@*<div class="product_list_size-item">
+						<input type="radio" name="35" value="35" id="35">
+						<label for="35">
+							VN 35
+						</label>
+					</div>*@
+
+			</div>
+			<div class="product_add_size mt-5">
+				<button class="btn add-shopping-cart" data-id="@Model.Id">Thêm vào giỏ hàng</button>
+			</div>
+		</div>
+
+		<div class="product_detail_right-item mt-4">
+			<div class="deriptions">
+				@Model.Description
+			</div>
+		</div>
+
+
+		<div class="product_detail_right-item mt-3">
+			<div class="color_product">
+				<ul>
+					<li>
+						Màu sắc hiển thị: Đen / Anthracite / Trắng
+					</li>
+					<li>Phong cách: DC5421-003 </li>
+				</ul>
+			</div>
+		</div>
+
+
+		<div class="product_detail_right-item mt-3">
+			<button class="accordion">Giao hàng và trả hàng miễn phí</button>
+			<div class="panel">
+				<p> Đơn hàng của bạn từ 5.000.000 ₫ trở lên được giao hàng bình thường miễn phí.</p>
+				<div>
+					<ul class="mt-3 ">
+						<li>
+							Tiêu chuẩn giao hàng 4-5 ngày làm việc
+						</li>
+						<li> Chuyển phát nhanh 2-4 Ngày làm việc</li>
+					</ul>
+				</div>
+				<div class="mt-4">
+					Các đơn đặt hàng được xử lý và giao từ Thứ Hai đến Thứ Sáu (trừ ngày lễ)
+				</div>
+			</div>
+
+			<button class="accordion">Đánh Giá</button>
+			<div class="panel">
+
+			</div>
+
+
+		</div>
+	</div>
+</section>
+
+@section Scripts{
+	<script>
+		var acc = document.getElementsByClassName("accordion");
+		var i;
+
+		for (i = 0; i < acc.length; i++) {
+			acc[i].addEventListener("click", function () {
+				this.classList.toggle("active");
+				var panel = this.nextElementSibling;
+				if (panel.style.maxHeight) {
+					panel.style.maxHeight = null;
+				} else {
+					panel.style.maxHeight = panel.scrollHeight + "px";
+				}
+			});
+		}
+	</script>
+
+	<script>
+		$(function () {
+			GetListSize();
+		})
+
+		function GetId() {
+			const url = window.location.href;
+			return url.split('/').at(-1);
+		}
+
+		function GetListSize() {
+			var id = GetId(window.location.href);
+			$.ajax({
+				type: 'GET',
+				url: '/SanPham/GetSize',
+				data: { id: id },
+				success: function (res) {
+					$('.product_list_size').html('');
+					if (res != "") {
+						render(res);
+					}
+					else {
+						$('.size_title').html("").text("Sản phẩm đã tạm thời bán hết");
+						$(".add-shopping-cart").attr("disabled", "disabled");
+					}
+
+				}
+			})
+		};
+		function render(data) {
+			var tr = $('.product_list_size');
+			return data.forEach(function (res, index) {
+				var td = "";
+				if (res.quantity > 0) {
+					td = `
+									<div class="product_list_size-item">
+											<input type="radio" name="Name" value="${res.id}" id="${res.id}" class="values-item">
+											<label for="${res.id}">
+												 ${res.name}ML
+											</label>
+									</div>
+								`
+				}
+				else {
+					td = `
+						<div class="product_list_size-item">
+									<input type="radio" name="Name" value="${res.id}" id="${res.id}" disabled="disabled" class="values-item">
+										<label for="${res.id}" class="maukhac">
+											Out of stock ${res.name}ML
+										</label>
+						</div>
+						`
+				}
+
+				$(td).appendTo(tr);
+			});
+		};
+	</script>
+	<script src="~/Admin/assets/js/ShoppingCart/ShoppingCart.js" asp-append-version="true"></script>
+}

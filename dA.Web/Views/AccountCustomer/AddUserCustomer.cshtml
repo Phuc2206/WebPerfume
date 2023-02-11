@@ -1,0 +1,78 @@
+﻿@section head{
+	<link href="~/css/Login.css" asp-append-version="true" rel="stylesheet" />
+}
+@model dA.Data.AppCustomer
+<div class="content">
+	<section class="content_item">
+		<div class="form_login">
+			<div class="chu">
+				BECOME A PT.Perfume MEMBER
+			</div>
+			<p style="color: #8d8d8d;
+                        padding: 5px 0px 5px 15px;margin-bottom: 10px;">
+				Tạo hồ sơ thành viên PT.Perfume của bạn và có quyền truy cập đầu tiên vào các sản phẩm tốt
+				nhất của PT.Perfume , cảm hứng và cộng đồng.
+			</p>
+			<form method="post">
+				<div class="np-form-group-validate">
+					<span asp-validation-for="Username" class="text-danger small"></span>
+				</div>
+				<div class="np-form-group">
+					<input class="np-form-control" asp-for="Username" placeholder=" ">
+					<label class="np-form-label" asp-for="Username">Tài Khoản</label>
+				</div>
+
+				<div class="np-form-group-validate">
+					<span asp-validation-for="Password" class="text-danger small"></span>
+				</div>
+				<div class="np-form-group">
+					<input id="my-input" type="password" class="np-form-control" asp-for="Password"
+						   placeholder=" ">
+					<label for="my-input" asp-for="Password" class="np-form-label">Mật khẩu</label>
+				</div>
+                @*<div class="np-form-group">
+					<input id="my-input" type="password" class="np-form-control" asp-for="Password"
+						   placeholder=" ">
+					<label for="my-input" asp-for="Password" class="np-form-label">Xác Nhận Mật khẩu</label>
+				</div>*@
+
+				<div class="np-form-group-validate">
+					<span asp-validation-for="Name" class="text-danger small"></span>
+				</div>
+				<div class="np-form-group">
+					<input id="my-input" class="np-form-control" asp-for="Name" placeholder=" ">
+					<label for="my-input" asp-for="Name" class="np-form-label">Họ và tên</label>
+				</div>
+
+				<div class="np-form-group-validate">
+					<span asp-validation-for="Address" class="text-danger small"></span>
+				</div>
+				<div class="np-form-group">
+					<input id="my-input" class="np-form-control" asp-for="Address" placeholder=" ">
+					<label for="my-input" class="np-form-label" asp-for="Address">Địa chỉ</label>
+				</div>
+				<div class="np-form-group-validate">
+					<span asp-validation-for="PhoneNumber" class="text-danger small"></span>
+				</div>
+				<div class="np-form-group">
+					<input id="my-input" class="np-form-control" asp-for="PhoneNumber" placeholder=" ">
+					<label for="my-input" class="np-form-label" asp-for="PhoneNumber">Số điện thoại</label>
+				</div>
+				<div class="np-form-group-validate">
+					<span asp-validation-for="Email" class="text-danger small"></span>
+				</div><div class="np-form-group">
+					<input id="my-input" class="np-form-control" type="text" asp-for="Email" placeholder=" ">
+					<label for="my-input" class="np-form-label" asp-for="Email">Địa chỉ Email</label>
+				</div>
+
+				<div class="np-form-group">
+					<button type="submit" asp-controller="AccountCustomer" asp-action="AddUserCustomer" class="btnlogin">Đăng ký</button>
+				</div>
+
+			</form>
+		</div>
+	</section>
+</div>
+@section Scripts{	
+	<partial name="_ValidationScriptsPartial" />
+}

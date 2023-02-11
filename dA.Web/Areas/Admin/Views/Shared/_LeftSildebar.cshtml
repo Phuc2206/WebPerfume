@@ -1,0 +1,120 @@
+﻿@using dA.Web.Areas.ViewModels
+@{
+	var className = "d-block text-decoration-none";
+
+	var menu = new List<MenuItemVM>
+{
+		new MenuItemVM("Dashboard","fa-tachometer-alt","","index","Home"),
+		new MenuItemVM("Thương hiệu", "fa-newspaper","","Index", "Trademarks"),
+		new MenuItemVM("Thể loại", "fa-list", "", "Index", "Category"),
+		new MenuItemVM("Sản phẩm", "fa-list", "", "Index", "Product"),
+		new MenuItemVM("Danh sách admin", "fa-users", "", "Index", "UserAdmin"),
+		new MenuItemVM("Danh sách khách hàng", "fa-users", "", "Index", "Customer"),
+		new MenuItemVM("Danh sách đơn hàng", "fa-store", "", "Index", "Bill"),
+		new MenuItemVM("Quản lý System", "fa-store", "", "Index", "DBSystem"),
+        //new MenuItemVM("Blog", "fa-newspaper","","Index", "Blog"),
+        //new MenuItemVM("Quản Lý File","fa-light fa-file","","Index","FileManager")
+	};
+
+	var currentController = this.ViewContext.RouteData.Values["controller"].ToString();
+	// var currentAction = this.ViewContext.RouteData.Values["action"].ToString();
+	var active = "";
+}
+
+
+<!--<nav class="border-right width-325px">
+	<div class="p-5">-->
+@*Icon here*@
+<!--</div>
+
+	<ul class="list-group list-group-flush mt-2">
+		@foreach (var item in menu)
+		{
+			if (item.ControllerName == currentController)
+			{
+				active = "active";
+			}
+			else
+			{
+				active = "";
+			}
+			<li class="list-group-item @active">
+				@if (item.Childs != null && item.Childs.Count > 0)
+				{
+					<a class="@className" data-toggle="collapse" data-target="#@item.IdAttr"
+					   asp-action="@item.ActionName" asp-controller="@item.ControllerName">
+						<i class="fas fa-fw @item.Icon"></i>&nbsp;<span>@item.Text</span>
+					</a>
+					<ul class="list-unstyled pl-4 collapse" id="@item.IdAttr">
+						@foreach (var child in item.Childs)
+						{
+							<li class="pt-2">
+								<a class="@className" asp-action="@child.ActionName" asp-controller="@child.ControllerName" asp-area="Admin">@child.Text</a>
+							</li>
+
+						}
+					</ul>
+				}
+				else
+				{
+					<a class="@className" id="@item.IdAttr" asp-action="@item.ActionName" asp-controller="@item.ControllerName" asp-area="Admin">
+						<i class="fas fa-fw @item.Icon"></i>&nbsp;<span>@item.Text</span>
+					</a>
+				}
+			</li>
+		}
+		<li class="list-group-item">
+			<a class="d-block text-decoration-none text-dark text-truncate" asp-action="DangXuat" asp-controller="UserActivity"><i class="nav-icon fas fa-key"></i>&nbsp;<span>Đăng xuất</span></a>
+		</li>
+	</ul>
+</nav>-->
+
+
+
+<div data-simplebar class="sidebar-menu-scroll">
+	<!--- Sidemenu -->
+	<div id="sidebar-menu">
+		<!-- Left Menu Start -->
+		<ul class="metismenu list-unstyled" id="side-menu">
+			@foreach (var item in menu)
+			{
+				if (item.ControllerName == currentController)
+				{
+					active = "active";
+				}
+				else
+				{
+					active = "";
+				}
+				<li>
+					@if (item.Childs != null && item.Childs.Count > 0)
+					{
+						<a class="@className" data-toggle="collapse" data-target="#@item.IdAttr"
+						   asp-action="@item.ActionName" asp-controller="@item.ControllerName">
+							<i class="fas fa-fw @item.Icon"></i>&nbsp;<span>@item.Text</span>
+						</a>
+						<ul class="list-unstyled pl-4 collapse" id="@item.IdAttr">
+							@foreach (var child in item.Childs)
+							{
+								<li class="pt-2">
+									<a class="@className" asp-action="@child.ActionName" asp-controller="@child.ControllerName" asp-area="Admin">@child.Text</a>
+								</li>
+
+							}
+						</ul>
+					}
+					else
+					{
+						<a class="@className" id="@item.IdAttr" asp-action="@item.ActionName" asp-controller="@item.ControllerName" asp-area="Admin">
+							<i class="fas fa-fw @item.Icon"></i>&nbsp;&nbsp;&nbsp;<span>@item.Text</span>
+						</a>
+					}
+				</li>
+			}
+
+			
+
+		</ul>
+	</div>
+	<!-- Sidebar -->
+</div>

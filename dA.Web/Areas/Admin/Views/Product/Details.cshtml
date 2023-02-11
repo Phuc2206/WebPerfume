@@ -1,0 +1,96 @@
+﻿@model dA.Data.AppProduct
+@{
+	ViewData["Title"] = "Chi tiết sản phẩm";
+}
+@section head{
+}
+
+
+<div class="row mb-4">
+	<div class="col-xl-4">
+		<div class="card">
+			<div class="card-body">
+				<div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
+					<div class="carousel-inner" role="listbox">
+					</div>
+					<a class="carousel-control-prev" href="#carouselExampleControls" role="button"
+					   data-bs-slide="prev">
+						<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+						<span class="sr-only">Previous</span>
+					</a>
+					<a class="carousel-control-next" href="#carouselExampleControls" role="button"
+					   data-bs-slide="next">
+						<span class="carousel-control-next-icon" aria-hidden="true"></span>
+						<span class="sr-only">Next</span>
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="col-xl-8">
+		<div class="card mb-0">
+			<!-- Nav tabs -->
+			<div class="mt-4">
+				<div class="product-desc">
+					<ul class="nav nav-tabs nav-tabs-custom" role="tablist">
+						<li class="nav-item">
+							<a class="nav-link active" id="specifi-tab"
+							   data-bs-toggle="tab" href="#specifi" role="tab">Thông tin sản phẩm</a>
+						</li>
+					</ul>
+					<div class="tab-content border border-top-0 p-4">
+
+						<div class="tab-pane fade show active" id="specifi" role="tabpanel">
+
+							<form action="/" method="post" id="ProductFormDetails">
+								<table class="table table-nowrap mb-0">
+									<tbody>
+										<tr>
+											<th scope="row">Tên sản phẩm</th>
+											<td id="Name"></td>
+										</tr>
+										<tr>
+											<th scope="row" style="width: 20%;">Thể loại</th>
+											<td id="CategoryId"></td>
+										</tr>
+										<tr>
+											<th scope="row">Thương hiệu</th>
+											<td id="TrademarkId"></td>
+										</tr>
+										<tr>
+											<th scope="row">Số lượng</th>
+											<td id="Quality"></td>
+										</tr>
+										<tr>
+											<th scope="row">Giá bán</th>
+											<td id="Price"></td>
+										</tr>
+										<tr>
+											<th scope="row">Giá bán khuyến mãi</th>
+											<td id="PromoPrice"></td>
+										</tr>
+										<tr>
+											<th>Mô tả</th>
+											<td id="Description"></td>
+										</tr>
+									</tbody>
+								</table>
+							</form>
+						</div>
+					</div>
+				</div>
+			</div>
+			<!-- Tab content -->
+
+		</div>
+	</div>
+	<div class="col-12 mb-3">
+		<a  class="btn btn-primary waves-effect waves-light" asp-action="index" asp-controller="Product">Về trang trước</a>
+	</div>
+</div>
+
+
+@section Script {
+	<script src="~/Admin/assets/js/Product/UpLoadImg.js" asp-append-version="true"></script>
+	<script src="~/Admin/assets/js/Product/Details.js" asp-append-version="true"></script>
+}

@@ -1,0 +1,18 @@
+﻿@model IEnumerable<dA.Data.AppTrademark>
+<section class="content_item">
+	<div class="partner__container">
+		<h2 class="partner__title">Popular Brands</h2>
+		<ul class="partner__list">
+
+			@if (Model != null)
+			{
+				@foreach (var item in Model)
+				{
+					<li class="partner__item">
+						<img src="~/Images/Trademarks/@item.Avatar" alt="amazon" class="partner__logo" />
+					</li>
+				}
+			}
+		</ul>
+	</div>
+</section>

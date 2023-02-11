@@ -1,0 +1,35 @@
+﻿@{
+	ViewData["Title"] = "Danh sách hóa đơn";
+}
+
+<div class="col-12 justify-content-center">
+	<div class="justify-content-center">
+		<table class="table table-hover table-bordered w-100 text-center">
+			<thead>
+				<tr>
+					<th class="fit">#</th>
+					<th width="20%">Tên khách hàng</th>
+					<th width="20%">Ngày tạo hóa đơn</th>
+					<th width="20%">Tổng tiền</th>
+					<th class="fit" width="10%"></th>
+				</tr>
+			</thead>
+			<tbody class="bill">
+			</tbody>
+			@*<tfoot>
+				<tr>
+					<th>#</th>
+					<th width="20%">Tên khách hàng</th>
+					<th width="20%">Ngày tạo hóa đơn</th>
+					<th width="20%">Tổng tiền</th>
+					<th></th>
+				</tr>
+			</tfoot>*@
+		</table>
+	</div>
+	<partial name="_Pagination" />
+	<partial name="_BillDetail" />
+</div>
+@section Script {
+	<script src="~/Admin/assets/js/Bill/Bill.js" asp-append-version="true"></script>
+}

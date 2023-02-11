@@ -1,0 +1,108 @@
+﻿  <!--  Extra Large modal example -->
+<div class="modal fade bs-example-modal-xl" tabindex="-1" role="dialog" data-bs-backdrop="static"
+	 aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+	<div class="modal-dialog modal-xl">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="myExtraLargeModalLabel">
+					Chi tiết đơn đặt hàng
+				</h5>
+				@*<button type="button" class="btn-close" data-bs-dismiss="modal"
+						aria-label="Close"></button>*@
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<div class="col-lg-12">
+						<div class="card">
+							<div class="card-body">
+								<div class="row">
+									<div class="col-sm-6">
+										<div class="text-muted">
+											<h5 class="font-size-16 mb-3">Gửi đến: <span class="namecus"></span></h5>
+											<p class="mb-1 ">Địa chỉ: <span class="addresscus"></span></p>
+											<p class="mb-1 ">Địa chỉ nhận hàng: <span class="deliveryAddresscus"></span></p>
+											<p class="mb-1 ">Email : <span class="emailcus"></span></p>
+											<p class="mb-1">Số điẹn thoại : <span class="sdtcus"></span></p>
+										</div>
+									</div>
+									<div class="col-sm-6">
+										<div class="text-muted text-sm-end">
+											<div class="mt-4">
+												<h5 class="font-size-16 mb-1">Ngày lặp hóa đơn:</h5>
+												<p class="createbill">09 Jul, 2020</p>
+											</div>
+										</div>
+									</div>
+								</div>
+
+
+								<div class="py-2">
+									<h5 class="font-size-15">Order summary</h5>
+									<div class="notecus"> </div>
+									<div class="table-responsive">
+										<table class="table table-nowrap table-centered mb-0">
+											<thead>
+												<tr>
+													<th style="width: 70px;">No.</th>
+													<th>Tên sản phẩm</th>
+													<th>Hình ảnh</th>
+													<th>Giá bán</th>
+													<th>Số Lượng</th>
+													<th class="text-end" style="width: 120px;">Thành tiền</th>
+												</tr>
+											</thead>
+											<tbody class="billdetail">
+												@*<tr>
+						<th scope="row">01</th>
+						<td>
+							<h5 class="font-size-15 mb-1">Nike N012 Running Shoes</h5>
+							<ul class="list-inline mb-0">
+								<li class="list-inline-item">
+									Color : <span class="fw-medium">Gray</span>
+								</li>
+								<li class="list-inline-item">
+									Size : <span class="fw-medium">08</span>
+								</li>
+							</ul>
+						</td>
+						<td>
+							<img class="img-fluid rounded-circle img-responsive" style="height:100px ; width:100px;  object-fit:cover;"  src="~/Images/Product/3d995dfb-3d4c-4dd4-b195-98eb7e8a45ea.webp" />
+						</td>
+						<td>$260</td>
+						<td>1</td>
+						<td class="text-end">$260.00</td>
+					</tr>*@
+											</tbody>
+										</table>
+
+									</div>
+
+									<div class="col-sm-12">
+										<div class="text-muted text-sm-end">
+											<div class="mt-4">
+												<p class="font-size-24 mb-1">Thành tiền: <span class="totalbill"></span></p>
+											</div>
+										</div>
+									</div>
+									<div class="d-print-none mt-4">
+										<div class="float-end">
+											<a href="javascript:window.print()"
+											   class="btn btn-success waves-effect waves-light me-1">
+												<i class="fa fa-print"></i>
+											</a>
+											<button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal" id="btnClose">Húy</button>
+										</div>
+									</div>
+								</div>
+
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+		<!-- /.modal-content -->
+	</div>
+	<!-- /.modal-dialog -->
+</div>
+<!-- /.modal -->

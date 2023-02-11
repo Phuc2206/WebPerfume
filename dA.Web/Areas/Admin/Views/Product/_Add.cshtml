@@ -1,0 +1,256 @@
+﻿@model dA.Data.AppProduct
+
+<div id="Product_modal" class="modal fade" tabindex="-1" data-bs-backdrop="static" aria-labelledby="#exampleModalFullscreenLabel" aria-hidden="true">
+	<div class="modal-dialog modal-fullscreen">
+		<div class="modal-content">
+			<div class="modal-header">
+				<h5 class="modal-title" id="exampleModalFullscreenLabel">Trang thêm sản phẩm</h5>
+				@*<button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>*@
+			</div>
+			<div class="modal-body">
+				<div class="row">
+					<form id="ProductForm" method="post" enctype="multipart/form-data" multiple="multiple">
+						<div class="col-md-12">
+
+							<input asp-for="Id" type="hidden" class="form-control" />
+							<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+							<div class="row">
+								<div class="col-md-9">
+									<div class="mb-3">
+										<label asp-for="Name" class="control-label ml-2">Tên sản phẩm</label>
+										<input asp-for="Name" type="text" class="form-control" />
+										<span asp-validation-for="Name" class="text-danger"></span>
+									</div>
+
+									<div class="mb-3">
+										<label asp-for="Summary" class="control-label ml-2">Tóm tắt</label>
+										<input asp-for="Summary" class="form-control" type="text" />
+										<span asp-validation-for="Summary" class="text-danger"></span>
+									</div>
+									<div class="mb-3">
+										<label asp-for="Description" class="control-label ml-2">Mô tả sản phẩm</label>
+										<textarea class="form-control" asp-for="Description" type="text" rows="6"></textarea>
+									</div>
+								</div>
+								<div class="col-md-3">
+
+									<div class="mb-3">
+										<label asp-for="DisplayOrder" class="control-label ml-2"></label>
+										<input asp-for="DisplayOrder" class="form-control" type="number" />
+										<span asp-validation-for="DisplayOrder" class="text-danger"></span>
+									</div>
+
+									<!--<div class="mb-3">
+									<label asp-for="CategoryId" class="control-label ml-2 ml-2">Thể loại sản phẩm</label>
+									<select asp-for="CategoryId" class="custom-select">-->
+									@*<option>Chọn một thể loại</option>*@
+									<!--</select>
+										<span asp-validation-for="CategoryId" class="text-danger"></span>
+									</div>-->
+
+									<div class="mb-3">
+										<label asp-for="CategoryId" class="control-label ml-2">Thể loại sản phẩm</label>
+										<select asp-for="CategoryId" class="form-control select2" data-placeholder="Choose ...">
+											@*<option>Chọn một thể loại</option>*@
+										</select>
+										<span asp-validation-for="CategoryId" class="text-danger"></span>
+									</div>
+									<div class="mb-3">
+										<label asp-for="Price" class="control-label ml-2">Giá nhập</label>
+										<span asp-validation-for="Price" class="text-danger"></span>
+										<div class="input-group mb-3">
+											<div asp-for="Price" class="input-group-prepend">
+												<span class="bg-success input-group-text text-white">VND</span>
+											</div>
+											<input type="text" asp-for="Price" class="form-control" aria-label="Giá nhập">
+										</div>
+									</div>
+
+									<div class="mb-3">
+										<label asp-for="PromoPrice" class="control-label ml-2">Giá Khuyến mãi</label>
+										<span asp-validation-for="PromoPrice" class="text-danger"></span>
+										<div class="input-group mb-3">
+											<div class="input-group-prepend">
+												<span class="bg-success input-group-text text-white">VND</span>
+											</div>
+											<input asp-for="PromoPrice" class="form-control" aria-label="Giá nhập" placeholder="Hãy nhập 0 nếu không giảm giá">
+										</div>
+									</div>
+								</div>
+							</div>
+							<hr />
+							<!--<div class="row">
+
+								<div class="col-12">
+									<div class="card">
+										<div class="card-body">
+
+											<h4 class="card-title">Thêm ảnh cho sản phẩm</h4>
+
+											<div class="col-md-12">
+												<div class="col-md-4">
+													<div class="dropzone">
+														<div class="fallback">
+															<input asp-for="UrlPicture" type="file">
+														</div>
+														<div class="dz-message needsclick">
+															<div class="mb-3">
+																<i class="display-4 text-muted uil uil-cloud-upload"></i>
+															</div>
+
+															<h4>Có thể chọn cùng lúc nhiều hìnhs</h4>
+														</div>
+													</div>
+												</div>
+
+												<div class="col-md-8">
+													<div class="dropzone">
+														<div class="fallback">
+															<input asp-for="ListProductPicture" type="file" multiple="multiple">
+														</div>
+														<div class="dz-message needsclick">
+															<div class="mb-3">
+																<i class="display-4 text-muted uil uil-cloud-upload"></i>
+															</div>
+
+															<h4>Có thể chọn cùng lúc nhiều hìnhs</h4>
+														</div>
+													</div>
+												</div>
+											</div>
+										</div>
+									</div>
+
+								</div>-->
+							<!-- end col -->
+							<!--</div>--> <!-- end row -->
+
+
+
+							<div class="row">
+								<div class="col-md-12">
+									<div class="card">
+										<div class="card-body">
+											<h4 class="card-title">Thêm hình ảnh cho sản phẩm</h4>
+											<div class="col-12">
+												<div class="row">
+													<div class="col-lg-4">
+														<div class="form-group">
+															<label for="Avatar" class="control-label ml-2">Hình đại điện</label>
+															<div class="image-upload-container d-flex justify-content-center align-items-center">
+																<img id="Avatar" class="img-fluid" style="width: 400px; height: 400px; object-fit: cover ;" />
+															</div>
+															<input type="file" class="image-upload-button" style="visibility:hidden" name="UrlPicture" />
+
+														</div>
+													</div>
+
+
+													<div class="col-lg-8">
+														<div class="row">
+															<div class="col-md-12">
+																<div class="card">
+																	<div class="card-body">
+																		<div class="table-responsive">
+																			<h4 class="card-title">Thêm hình ảnh khác</h4>
+
+																			<div class="col-md-10 offset-1">
+																				<div class="row js-params-row-pic">
+																					<div class="mb-3">
+																						<div class="col-12">
+																							<input class="form-control" type="file" asp-for="ListProductPicture">
+																						</div>
+																					</div>
+																				</div>
+
+																				<div class="row d-none" id="js-params-row-template-pic">
+																					<div class="mb-3">
+																						<div class="col-12">
+																							<input class="form-control" type="file" name="ListProductPicture[{0}].Name">
+																						</div>
+																					</div>
+																				</div>
+
+																				<div class="row mt-4">
+																					<div class="col">
+																						<button type="button" class="btn btn-outline-info" id="btnAddPic">Thêm thông số</button>
+																					</div>
+																				</div>
+																			</div>
+																		</div>
+
+																	</div>
+																</div>
+															</div> <!-- end col -->
+														</div> <!-- end row -->
+													</div>
+
+
+												</div>
+											</div>
+										</div>
+									</div>
+								</div> <!-- end col -->
+							</div> <!-- end row -->
+
+							<div class="row">
+								<div class="col-12">
+									<div class="card">
+										<div class="card-body">
+											<div class="table-responsive">
+												<h4 class="card-title">Thêm dung tích cho sản phẩm</h4>
+
+												<div class="col-md-12">
+													<div class="row js-params-row-size">
+														<div class="col-4">
+															<div class="form-group">
+																<label class="control-label">dung tích</label>
+																<input name="ListSizeNavigation[0].Name" class="form-control"  value="0"/>
+															</div>
+														</div>
+														<div class="col-4">
+															<div class="form-group">
+																<label class="control-label">Số lượng</label>
+																<input name="ListSizeNavigation[0].Quantity" class="form-control" value="1" />
+															</div>
+														</div>
+													</div>
+
+													<div class="row d-none" id="js-params-row-template-size">
+														<div class="col-4">
+															<div class="form-group">
+																<label class="control-label">dung tích</label>
+																<input name="ListSizeNavigation[{0}].Name" class="form-control" />
+															</div>
+														</div>
+														<div class="col-4">
+															<div class="form-group">
+																<label class="control-label">Số lượng</label>
+																<input name="ListSizeNavigation[{0}].Quantity" class="form-control" />
+															</div>
+														</div>
+													</div>
+
+													<div class="row mt-4">
+														<div class="col">
+															<button type="button" class="btn btn-outline-info" id="btnAddSize">Thêm thông số</button>
+														</div>
+													</div>
+												</div>
+											</div>
+
+										</div>
+									</div>
+								</div> <!-- end col -->
+							</div> <!-- end row -->
+						</div>
+					</form>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button type="button" class="btn btn-light waves-effect" data-bs-dismiss="modal" id="btnClose">Hủy</button>
+				<button type="button" class="btn btn-primary waves-effect waves-light" id="btnSaveProduct">Lưu</button>
+			</div>
+		</div><!-- /.modal-content -->
+	</div><!-- /.modal-dialog -->
+</div><!-- /.modal -->
